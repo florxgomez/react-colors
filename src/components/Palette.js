@@ -3,13 +3,19 @@ import ColorBox from './ColorBox';
 import NavBar from './NavBar';
 import '../styles/Palette.css';
 
-const Palette = ({ palette: { colors, paletteName, emoji } }) => {
+const Palette = ({ palette: { colors, paletteName, emoji, id } }) => {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState('hex');
 
   const colorBoxes = colors[level].map((color) => {
     return (
-      <ColorBox background={color[format]} name={color.name} key={color.id} />
+      <ColorBox
+        background={color[format]}
+        name={color.name}
+        key={color.id}
+        moreUrl={`/palette/${id}/${color.id}`}
+        showLink={true}
+      />
     );
   });
 
