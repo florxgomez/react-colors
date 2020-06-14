@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import SnackBar from '@material-ui/core/Snackbar';
@@ -25,7 +26,7 @@ const NavBar = ({ level, changeLevel, handleChange }) => {
   return (
     <header className="navbar">
       <div className="logo">
-        <a href="/">My Color Palette</a>
+        <Link to="/">My Color Palette</Link>
       </div>
       <div className="slider-container">
         <span>Level: {level}</span>
@@ -62,7 +63,9 @@ const NavBar = ({ level, changeLevel, handleChange }) => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         open={open}
         autoHideDuration={3000}
-        message={<span id="message-id">Format changed to {format.toUpperCase()}</span>}
+        message={
+          <span id="message-id">Format changed to {format.toUpperCase()}</span>
+        }
         ContentProps={{ 'arial-describedby': 'message-id' }}
         onClose={closeSnackBar}
         action={[
