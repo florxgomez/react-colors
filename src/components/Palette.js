@@ -5,18 +5,27 @@ import '../styles/Palette.css';
 
 const Palette = ({ palette }) => {
   const [level, setLevel] = useState(500);
+  const [format, setFormat] = useState("hex");
 
   const colorBoxes = palette.colors[level].map((color) => {
-    return <ColorBox background={color.hex} name={color.name} />;
+    return <ColorBox background={color[format]} name={color.name} />;
   });
 
   const changeLevel = (newLevel) => {
     setLevel(newLevel);
   };
 
+  const changeFormat = (value) => {
+    setFormat(value)
+  };
+
   return (
     <div className="palette">
-      <NavBar level={level} changeLevel={changeLevel} />
+      <NavBar
+        level={level}
+        changeLevel={changeLevel}
+        handleChange={changeFormat}
+      />
       <div className="palette-colors">{colorBoxes}</div>
       {/* footer */}
     </div>
