@@ -38,9 +38,9 @@ const NavBar = ({ level, changeLevel, handleChange }) => {
             onAfterChange={changeLevel}
             trackStyle={{ backgroundColor: 'transparent' }}
             handleStyle={{
-              backgroundColor: 'purple',
+              backgroundColor: '#422fcc',
               outline: 'none',
-              border: '2px solid purple',
+              border: '2px solid #422fcc',
               boxShadow: 'none',
               width: '13px',
               height: '13px',

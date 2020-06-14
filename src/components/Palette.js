@@ -3,12 +3,14 @@ import ColorBox from './ColorBox';
 import NavBar from './NavBar';
 import '../styles/Palette.css';
 
-const Palette = ({ palette }) => {
+const Palette = ({ palette: { colors, paletteName, emoji } }) => {
   const [level, setLevel] = useState(500);
-  const [format, setFormat] = useState("hex");
+  const [format, setFormat] = useState('hex');
 
-  const colorBoxes = palette.colors[level].map((color) => {
-    return <ColorBox background={color[format]} name={color.name} />;
+  const colorBoxes = colors[level].map((color) => {
+    return (
+      <ColorBox background={color[format]} name={color.name} key={color.id} />
+    );
   });
 
   const changeLevel = (newLevel) => {
@@ -16,7 +18,7 @@ const Palette = ({ palette }) => {
   };
 
   const changeFormat = (value) => {
-    setFormat(value)
+    setFormat(value);
   };
 
   return (
@@ -27,7 +29,10 @@ const Palette = ({ palette }) => {
         handleChange={changeFormat}
       />
       <div className="palette-colors">{colorBoxes}</div>
-      {/* footer */}
+      <footer className="palette-footer">
+        {paletteName}
+        <span className="emoji">{emoji}</span>
+      </footer>
     </div>
   );
 };
