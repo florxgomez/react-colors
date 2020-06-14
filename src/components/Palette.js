@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import ColorBox from './ColorBox';
 import NavBar from './NavBar';
+import Footer from './Footer';
 import '../styles/Palette.css';
 
 const Palette = ({ palette: { colors, paletteName, emoji, id } }) => {
-  const [level, setLevel] = useState(500);
   const [format, setFormat] = useState('hex');
+  const [level, setLevel] = useState(500);
 
   const colorBoxes = colors[level].map((color) => {
     return (
@@ -33,12 +34,10 @@ const Palette = ({ palette: { colors, paletteName, emoji, id } }) => {
         level={level}
         changeLevel={changeLevel}
         handleChange={changeFormat}
+        showingAllColors
       />
       <div className="palette-colors">{colorBoxes}</div>
-      <footer className="palette-footer">
-        {paletteName}
-        <span className="emoji">{emoji}</span>
-      </footer>
+      <Footer paletteName={paletteName} emoji={emoji} />
     </div>
   );
 };

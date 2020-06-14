@@ -9,7 +9,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import '../styles/NavBar.css';
 
-const NavBar = ({ level, changeLevel, handleChange }) => {
+const NavBar = ({ level, changeLevel, handleChange, showingAllColors }) => {
   const [format, setFormat] = useState('hex');
   const [open, setOpen] = useState(false);
 
@@ -28,30 +28,33 @@ const NavBar = ({ level, changeLevel, handleChange }) => {
       <div className="logo">
         <Link to="/">My Color Palette</Link>
       </div>
-      <div className="slider-container">
-        <span>Level: {level}</span>
-        <div className="slider">
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={changeLevel}
-            trackStyle={{ backgroundColor: 'transparent' }}
-            handleStyle={{
-              backgroundColor: '#422fcc',
-              outline: 'none',
-              border: '2px solid #422fcc',
-              boxShadow: 'none',
-              width: '13px',
-              height: '13px',
-              marginLeft: '-7px',
-              marginTop: '-3px',
-            }}
-            railStyle={{ height: '8px' }}
-          />
+      {showingAllColors && (
+        <div className="slider-container">
+          <span>Level: {level}</span>
+          <div className="slider">
+            <Slider
+              defaultValue={level}
+              min={100}
+              max={900}
+              step={100}
+              onAfterChange={changeLevel}
+              trackStyle={{ backgroundColor: 'transparent' }}
+              handleStyle={{
+                backgroundColor: '#422fcc',
+                outline: 'none',
+                border: '2px solid #422fcc',
+                boxShadow: 'none',
+                width: '13px',
+                height: '13px',
+                marginLeft: '-7px',
+                marginTop: '-3px',
+              }}
+              railStyle={{ height: '8px' }}
+            />
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="select-container">
         <Select value={format} onChange={handleChangeFormat}>
           <MenuItem value="hex">HEX - #ffffff</MenuItem>
