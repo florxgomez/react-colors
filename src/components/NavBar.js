@@ -7,9 +7,16 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import '../styles/NavBar.css';
+import { withStyles } from '@material-ui/styles';
+import styles from '../styles/NavBarStyles';
 
-const NavBar = ({ level, changeLevel, handleChange, showingAllColors }) => {
+const NavBar = ({
+  level,
+  changeLevel,
+  handleChange,
+  showingAllColors,
+  classes,
+}) => {
   const [format, setFormat] = useState('hex');
   const [open, setOpen] = useState(false);
 
@@ -24,14 +31,14 @@ const NavBar = ({ level, changeLevel, handleChange, showingAllColors }) => {
   };
 
   return (
-    <header className="navbar">
-      <div className="logo">
+    <header className={classes.navbar}>
+      <div className={classes.logo}>
         <Link to="/">My Color Palette</Link>
       </div>
       {showingAllColors && (
-        <div className="slider-container">
+        <div>
           <span>Level: {level}</span>
-          <div className="slider">
+          <div className={classes.slider}>
             <Slider
               defaultValue={level}
               min={100}
@@ -54,7 +61,7 @@ const NavBar = ({ level, changeLevel, handleChange, showingAllColors }) => {
         </div>
       )}
 
-      <div className="select-container">
+      <div className={classes.selectContainer}>
         <Select value={format} onChange={handleChangeFormat}>
           <MenuItem value="hex">HEX - #ffffff</MenuItem>
           <MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>
@@ -85,4 +92,4 @@ const NavBar = ({ level, changeLevel, handleChange, showingAllColors }) => {
   );
 };
 
-export default NavBar;
+export default withStyles(styles)(NavBar);
