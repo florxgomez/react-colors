@@ -46,7 +46,6 @@ const NavBar = ({ level, changeLevel, handleChange, showingAllColors }) => {
                 boxShadow: 'none',
                 width: '13px',
                 height: '13px',
-                marginLeft: '-7px',
                 marginTop: '-3px',
               }}
               railStyle={{ height: '8px' }}
