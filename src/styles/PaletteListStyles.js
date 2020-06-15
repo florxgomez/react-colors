@@ -1,7 +1,7 @@
 export default {
   root: {
     backgroundColor: 'blue',
-    height: '100vh',
+    height: '110vh',
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -19,9 +19,9 @@ export default {
     justifyContent: 'space-between',
     color: 'white',
     alignItems: 'center',
-    '& a': {
-      color: 'white',
-    },
+    "& a": {
+      color: "white"
+    }
   },
   palettes: {
     boxSizing: 'border-box',

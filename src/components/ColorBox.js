@@ -32,12 +32,11 @@ const ColorBox = ({
           <h1>Copied!</h1>
           <p className={classes.copyText}>{background}</p>
         </div>
-        <div>
-          <div className={classes.boxContent}>
-            <span className={classes.colorName}>{name}</span>
-          </div>
-          <button className={classes.copyButton}>Copy</button>
+        <div className={classes.boxContent}>
+          <span className={classes.colorName}>{name}</span>
         </div>
+        <button className={classes.copyButton}>Copy</button>
+
         {showingFullPalette && (
           <Link to={moreUrl} onClick={(e) => e.stopPropagation()}>
             <span className={classes.seeMore}>MORE</span>
